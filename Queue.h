@@ -31,7 +31,6 @@ int dequeue_struct(Queue *q){
    int value = 0;
    int pay = 0;
    int food = 0;
-   int nofoodcustomer = 0;
    int static count = 1;
 
    if(tempPtr){
@@ -52,7 +51,6 @@ int dequeue_struct(Queue *q){
       default: 
               value = 1;
               food = 0;
-              nofoodcustomer = 1;
               printf("Customer No. : %d\n", count);
               printf("No Food!!\n");
 
@@ -83,7 +81,7 @@ int dequeue_struct(Queue *q){
 
    q->headPtr = q->headPtr->nextPtr;
    free(tempPtr);
-   if (nofoodcustomer == 0) q->size -= 1;
+   q->size -= 1;
    count += 1;
    return value;
    }
